@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:scrollbars="none"
+    android:background="@color/white"
+    tools:context=".cadastro.ActivityCadastro"
+    android:paddingHorizontal="30dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="50dp">
+
+<!--        <TextView-->
+<!--            android:id="@+id/tv_step"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Conta"-->
+<!--            android:textSize="30sp"-->
+<!--            android:textStyle="bold"-->
+<!--            android:textAlignment="center"-->
+<!--            app:layout_constraintTop_toTopOf="parent"/>-->
+
+        <com.shuhart.stepview.StepView
+            android:id="@+id/step_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:paddingBottom="50dp"
+
+
+            app:sv_animationType="All"
+            app:sv_doneCircleColor="@color/dark_blue"
+            app:sv_doneCircleRadius="25dp"
+            app:sv_doneStepLineColor="@color/dark_blue"
+            app:sv_doneStepMarkColor="@color/white"
+            app:sv_nextStepCircleColor="@color/blue"
+            app:sv_nextStepCircleEnabled="true"
+            app:sv_doneTextColor="@color/black"
+            app:sv_selectedTextColor="@color/black"
+
+            app:sv_nextStepLineColor="@color/blue"
+            app:sv_nextTextColor="@color/white"
+            app:sv_selectedCircleColor="@color/dark_blue"
+            app:sv_selectedCircleRadius="30dp"
+            app:sv_selectedStepNumberColor="@color/white"
+            app:sv_stepLineWidth="3dp"
+            app:sv_stepNumberTextSize="25sp"
+            app:sv_stepPadding="2dp"
+            app:sv_stepViewStyle="@style/StepView"/>
+
+
+        <FrameLayout
+            android:id="@+id/fl_fragments"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp"
+            app:layout_constraintBottom_toTopOf="@id/ll_buttons"
+            app:layout_constraintTop_toBottomOf="@id/step_view" />
+
+        <LinearLayout
+            android:id="@+id/ll_buttons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="50dp"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <Button
+                android:id="@+id/btn_voltar"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="30dp"
+                android:layout_weight="1"
+                android:text="Voltar"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btn_avancar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="avançar" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>

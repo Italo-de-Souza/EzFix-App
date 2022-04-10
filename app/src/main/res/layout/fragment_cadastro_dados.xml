@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".cadastro.FragmentCadastroDados">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+<!--NOME COMPLETO-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_nome_completo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:boxStrokeColor="@color/blue"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_nome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/s_cad_nome"
+                android:inputType="textCapWords"
+                android:textColor="@color/gray"
+                tools:ignore="TextContrastCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+<!--CPF-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_cpf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:textColorHint="@color/gray"
+            app:hintTextColor="@color/black"
+            android:layout_marginTop="20dp"
+            app:boxStrokeColor="@color/blue"
+            app:layout_constraintTop_toBottomOf="@+id/til_nome_completo">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_cpf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/s_cad_cpf"
+                android:inputType="number"
+                android:textColor="@color/gray"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+<!--DATA DE NASCIMENTO-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_nascimento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:textColorHint="@color/gray"
+            app:helperTextEnabled="true"
+            app:hintTextColor="@color/black"
+            android:layout_marginTop="20dp"
+            app:boxStrokeColor="@color/blue"
+            app:layout_constraintTop_toBottomOf="@id/til_cpf">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_nascimento"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/s_cad_nascimento"
+                android:inputType="date"
+                android:textColor="@color/gray"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+<!--TELEFONE PRIMÁRIO-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_telefone_primario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:textColorHint="@color/gray"
+            app:hintTextColor="@color/black"
+            android:layout_marginTop="20dp"
+            app:boxStrokeColor="@color/blue"
+            app:layout_constraintTop_toBottomOf="@id/til_nascimento">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_telefone_primario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/s_cad_telPrimario"
+                android:inputType="number"
+                android:textColor="@color/gray"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+<!--TELEFONESECUNDÁRIO-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:textColorHint="@color/gray"
+            app:hintTextColor="@color/black"
+            android:layout_marginTop="20dp"
+            app:boxStrokeColor="@color/blue"
+            app:layout_constraintTop_toBottomOf="@id/til_telefone_primario">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_telefone_secundario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/s_cad_telSecundario"
+                android:inputType="number"
+                android:textColor="@color/gray"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</FrameLayout>

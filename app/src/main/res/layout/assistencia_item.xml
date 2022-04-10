@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/card_assistencia"
+        android:layout_marginVertical="5dp"
+        android:padding="20dp">
+
+<!--IMAGEM DA ASSISTÊNCIA-->
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_img_assistencia"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:src="@color/black" />
+
+<!--NOME DA ASSISTÊNCIA-->
+        <TextView
+            android:id="@+id/tv_nome_assistencia"
+            android:layout_width="230dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/iv_img_assistencia"
+            android:singleLine="true"
+            android:text="Assistencia"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+<!--ESTRELINHA-->
+        <ImageView
+            android:id="@+id/iv_rate_star"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/ic_rate_star"
+            app:tint="@color/yellow" />
+
+<!--AVALIAÇÃO-->
+        <TextView
+            android:id="@+id/tv_rate_star"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_toLeftOf="@id/iv_rate_star"
+            android:text="4,5"/>
+
+<!--SEPARADOR DE TEXTO-->
+        <View
+            android:id="@+id/vline"
+            android:layout_width="2dp"
+            android:layout_height="30dp"
+            android:layout_alignBottom="@id/tv_estado_assistencia"
+            android:layout_below="@id/tv_nome_assistencia"
+            android:layout_toRightOf="@id/tv_estado_assistencia"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/black"/>
+
+<!--DISTÂNCIA-->
+        <TextView
+            android:id="@+id/tv_distance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_nome_assistencia"
+            android:layout_toRightOf="@id/vline"
+            android:layout_marginTop="2dp"
+            android:text="3KM" />
+
+<!--CIDADE/ESTADO-->
+        <TextView
+            android:id="@+id/tv_cidade_assistencia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_nome_assistencia"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/iv_img_assistencia"
+            android:text="Cidade"
+            android:textColor="@color/black"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_estado_assistencia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_cidade_assistencia"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/iv_img_assistencia"
+            android:text="Estado"
+            android:textColor="@color/black"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

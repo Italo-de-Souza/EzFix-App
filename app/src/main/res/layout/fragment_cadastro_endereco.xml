@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".cadastro.FragmentCadastroEndereco">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!--CEP-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_cep"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:textColorHint="@color/gray"
+            app:hintTextColor="@color/black"
+            app:boxStrokeColor="@color/blue"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_cep"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/s_cad_cep"
+                android:inputType="number"
+                android:textColor="@color/gray"
+                tools:ignore="TextContrastCheck"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--LOGRADOURO-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_logradouro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:textColorHint="@color/gray"
+            app:hintTextColor="@color/black"
+            android:layout_marginTop="20dp"
+            app:boxStrokeColor="@color/blue"
+            app:layout_constraintTop_toBottomOf="@+id/til_cep">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_logradouro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/s_cad_logradouro"
+                android:inputType="text"
+                android:textColor="@color/gray"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--NUMERO-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_numero"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:textColorHint="@color/gray"
+            app:hintTextColor="@color/black"
+            android:layout_marginTop="20dp"
+            app:boxStrokeColor="@color/blue"
+            app:layout_constraintTop_toBottomOf="@id/til_logradouro">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_numero"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/s_cad_numero"
+                android:inputType="number"
+                android:textColor="@color/gray"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--COMPLEMENTO-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_complemento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:textColorHint="@color/gray"
+            app:hintTextColor="@color/black"
+            android:layout_marginTop="20dp"
+            app:boxStrokeColor="@color/blue"
+            app:layout_constraintTop_toBottomOf="@id/til_numero">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_complemento"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/s_cad_complemento"
+                android:inputType="text"
+                android:textColor="@color/gray"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--BAIRRO-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_bairro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:textColorHint="@color/gray"
+            app:hintTextColor="@color/black"
+            android:layout_marginTop="20dp"
+            app:boxStrokeColor="@color/blue"
+            app:layout_constraintTop_toBottomOf="@id/til_complemento">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_bairro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/s_cad_bairro"
+                android:inputType="text"
+                android:textColor="@color/gray"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+<!--        CIDADE-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_cidade"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:textColorHint="@color/gray"
+            app:hintTextColor="@color/black"
+            android:layout_marginTop="20dp"
+            app:boxStrokeColor="@color/blue"
+            app:layout_constraintTop_toBottomOf="@id/til_bairro">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_cidade"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/s_cad_cidade"
+                android:inputType="text"
+                android:textColor="@color/gray"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+<!--        ESTADO-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_estado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:textColorHint="@color/gray"
+            app:hintTextColor="@color/black"
+            android:layout_marginTop="20dp"
+            app:boxStrokeColor="@color/blue"
+            app:layout_constraintTop_toBottomOf="@id/til_cidade">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_estado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/s_cad_estado"
+                android:inputType="text"
+                android:textColor="@color/gray"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
