@@ -16,7 +16,7 @@ interface Backend {
     fun criarUsuario(@Body novoUsuario: NovoUsuario): Call<Void>;
 
     @GET("/assistencia/card-assistencia")
-    fun getCardsAssistencias(): Call<CardAssistencia>;
+    fun getCardsAssistencias(@Query("page") page : Int): Call<CardAssistencia>;
 
     @GET("/assistencia/perfil/{id}")
     fun getImagem(@Path("id") id : Int) : Call<ResponseBody>;

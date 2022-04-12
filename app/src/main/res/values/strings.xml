@@ -2,7 +2,7 @@
     <string name="app_name">EzFix</string>
     <!-- Strings relacionadas ao login -->
     <string name="s_email">Email</string>
-    <string name="s_password">Senha</string>
+    <string name="s_senha">Senha</string>
     <string name="s_btn_cadastrese">Cadastre-se!</string>
     <string name="s_btn_entrar">Entrar</string>
     <string name="s_gf">Ou entre com e-mail</string>

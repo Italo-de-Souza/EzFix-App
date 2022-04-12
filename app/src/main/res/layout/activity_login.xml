@@ -107,7 +107,7 @@
                     android:id="@+id/et_senha"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/s_email"
+                    android:hint="@string/s_senha"
                     android:inputType="textPassword"
                     android:textColor="@color/gray"
                     android:drawableStart="@android:drawable/ic_lock_idle_lock"

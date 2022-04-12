@@ -1,12 +1,15 @@
 package com.ezfix.ezfixaplication.mainscreen
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
-import android.util.Log.d
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AbsListView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.ezfix.ezfixaplication.configuration.HttpRequest
 import com.ezfix.ezfixaplication.data.CardAssistencia
 import com.ezfix.ezfixaplication.databinding.FragmentMainHomeBinding
@@ -17,6 +20,18 @@ import retrofit2.Response
 class FragmentMainHome : Fragment() {
 
     private lateinit var binding : FragmentMainHomeBinding;
+    private lateinit var recyclerView : RecyclerView;
+    private lateinit var adapter : AssistenciaAdapter;
+    private lateinit var layoutManager: LinearLayoutManager;
+    private lateinit var cardAssistencia: CardAssistencia;
+    private var page = 0;
+    private var totalPages = 1;
+    private var isScrolling = false;
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        page = 0;
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,28 +41,65 @@ class FragmentMainHome : Fragment() {
         binding = FragmentMainHomeBinding.inflate(layoutInflater);
         val view = binding.root;
 
-        val recyclerView = binding.recyclerView;
+        recyclerView = binding.recyclerView;
 
-        val http = HttpRequest.requerir();
+        setRecycleView()
+        buscarAssistencias();
 
-        http.getCardsAssistencias().enqueue(object : Callback<CardAssistencia>{
-            override fun onResponse(
-                call: Call<CardAssistencia>,
-                response: Response<CardAssistencia>
-            ) {
-                var cardAssistencia = response.body();
-
-                recyclerView.apply {
-                    adapter = AssistenciaAdapter(cardAssistencia!!.content)
+        recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener(){
+            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                super.onScrollStateChanged(recyclerView, newState)
+                if (newState == AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL){
+                    isScrolling = true;
                 }
             }
 
-            override fun onFailure(call: Call<CardAssistencia>, t: Throwable) {
-                Log.e("api", t.message!!)
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+                var itensVisiveis   = layoutManager.childCount;
+                var itensTotais     = layoutManager.itemCount;
+                var itensInvisiveis = layoutManager.findFirstVisibleItemPosition();
+
+                if (page < totalPages){
+                    if (isScrolling && (itensVisiveis + itensInvisiveis == itensTotais)){
+                        isScrolling = false;
+                        buscarAssistencias();
+                    }
+                }
             }
         })
-
         return view;
     }
 
+
+    fun buscarAssistencias(){
+
+            val http = HttpRequest.requerir();
+            http.getCardsAssistencias(page).enqueue(object : Callback<CardAssistencia>{
+                override fun onResponse(
+                    call: Call<CardAssistencia>,
+                    response: Response<CardAssistencia>
+                ) {
+                    if (page == 0){
+                        cardAssistencia = response.body()!!;
+                        totalPages      = response.body()!!.totalPages;
+                    } else {
+                        cardAssistencia.content = response.body()!!.content;
+                    }
+                    adapter.addLista(cardAssistencia.content)
+                    page++;
+                }
+
+                override fun onFailure(call: Call<CardAssistencia>, t: Throwable) {
+                    Log.e("api", t.message!!)
+                }
+            })
+    }
+
+    fun setRecycleView(){
+        layoutManager = LinearLayoutManager(context)
+        recyclerView.layoutManager = layoutManager;
+        adapter = AssistenciaAdapter();
+        recyclerView.adapter = adapter;
+    }
 }
