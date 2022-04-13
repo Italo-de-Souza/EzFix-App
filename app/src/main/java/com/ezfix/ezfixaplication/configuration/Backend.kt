@@ -1,7 +1,6 @@
 package com.ezfix.ezfixaplication.configuration
 
-import android.graphics.Bitmap
-import com.ezfix.ezfixaplication.cadastro.model.NovoUsuario
+import com.ezfix.ezfixaplication.model.NovoUsuario
 import com.ezfix.ezfixaplication.data.*
 import retrofit2.http.*
 import okhttp3.ResponseBody

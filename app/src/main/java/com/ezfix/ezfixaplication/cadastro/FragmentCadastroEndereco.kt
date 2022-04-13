@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.EditText
 import androidx.core.widget.doAfterTextChanged
 import com.ezfix.ezfixaplication.MaskFormatUtil
-import com.ezfix.ezfixaplication.cadastro.model.NovoUsuario
+import com.ezfix.ezfixaplication.model.NovoUsuario
 import com.ezfix.ezfixaplication.databinding.FragmentCadastroEnderecoBinding
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread

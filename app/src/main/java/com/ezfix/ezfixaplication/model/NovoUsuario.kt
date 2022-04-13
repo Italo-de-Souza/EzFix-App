@@ -1,4 +1,4 @@
-package com.ezfix.ezfixaplication.cadastro.model
+package com.ezfix.ezfixaplication.model
 
 class NovoUsuario {
     lateinit var email :String;

@@ -1,6 +1,5 @@
 package com.ezfix.ezfixaplication.cadastro
 
-import android.app.usage.NetworkStats
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import com.ezfix.ezfixaplication.MaskFormatUtil
-import com.ezfix.ezfixaplication.cadastro.model.NovoUsuario
+import com.ezfix.ezfixaplication.model.NovoUsuario
 import com.ezfix.ezfixaplication.databinding.FragmentCadastroDadosBinding
 
 class FragmentCadastroDados : Fragment(), InterfaceCadastro{

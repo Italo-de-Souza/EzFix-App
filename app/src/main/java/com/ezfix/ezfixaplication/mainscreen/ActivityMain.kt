@@ -1,16 +1,10 @@
-package com.ezfix.ezfixaplication
+package com.ezfix.ezfixaplication.mainscreen
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import androidx.fragment.app.Fragment
+import com.ezfix.ezfixaplication.R
 import com.ezfix.ezfixaplication.databinding.ActivityMainBinding
-import com.ezfix.ezfixaplication.mainscreen.FragmentMainBuscar
-import com.ezfix.ezfixaplication.mainscreen.FragmentMainHome
-import com.ezfix.ezfixaplication.mainscreen.FragmentMainPedidos
-import com.ezfix.ezfixaplication.mainscreen.FragmentMainPerfil
-import com.google.android.material.bottomnavigation.BottomNavigationMenuView
-import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class ActivityMain : AppCompatActivity() {
     private lateinit var binding : ActivityMainBinding;

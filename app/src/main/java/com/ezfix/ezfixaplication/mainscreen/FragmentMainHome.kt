@@ -1,6 +1,7 @@
 package com.ezfix.ezfixaplication.mainscreen
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -8,16 +9,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AbsListView
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.ezfix.ezfixaplication.ActivityInicial
 import com.ezfix.ezfixaplication.configuration.HttpRequest
+import com.ezfix.ezfixaplication.data.CardAssist
 import com.ezfix.ezfixaplication.data.CardAssistencia
 import com.ezfix.ezfixaplication.databinding.FragmentMainHomeBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class FragmentMainHome : Fragment() {
+class FragmentMainHome : Fragment(), AssistenciaAdapter.OnItemClickListener {
 
     private lateinit var binding : FragmentMainHomeBinding;
     private lateinit var recyclerView : RecyclerView;
@@ -53,7 +57,6 @@ class FragmentMainHome : Fragment() {
                     isScrolling = true;
                 }
             }
-
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
                 var itensVisiveis   = layoutManager.childCount;
@@ -68,6 +71,7 @@ class FragmentMainHome : Fragment() {
                 }
             }
         })
+
         return view;
     }
 
@@ -99,7 +103,12 @@ class FragmentMainHome : Fragment() {
     fun setRecycleView(){
         layoutManager = LinearLayoutManager(context)
         recyclerView.layoutManager = layoutManager;
-        adapter = AssistenciaAdapter();
+        adapter = AssistenciaAdapter(this)
         recyclerView.adapter = adapter;
     }
+
+    override fun onItemClick(position: CardAssist) {
+        Toast.makeText(context, "clicado: ${position.nomeFantasia}", Toast.LENGTH_LONG).show();
+    }
+
 }

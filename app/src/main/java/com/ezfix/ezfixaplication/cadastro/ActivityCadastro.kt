@@ -1,34 +1,23 @@
 package com.ezfix.ezfixaplication.cadastro
 
-import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
 import android.util.Log
 import android.view.View
 import android.widget.Button
-import android.widget.EditText
-import android.widget.PopupWindow
-import android.widget.Toast
-import androidx.annotation.Nullable
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
-import androidx.fragment.app.Fragment
 import com.ezfix.ezfixaplication.ActivityLogin
-import com.ezfix.ezfixaplication.ActivityMain
 import com.ezfix.ezfixaplication.R
-import com.ezfix.ezfixaplication.cadastro.model.NovoUsuario
+import com.ezfix.ezfixaplication.model.NovoUsuario
 import com.ezfix.ezfixaplication.configuration.HttpRequest
 import com.ezfix.ezfixaplication.databinding.ActivityCadastroBinding
-import com.google.gson.Gson
 import com.shuhart.stepview.StepView
-import org.jetbrains.anko.doAsync
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.lang.invoke.MethodHandles
 import java.util.*
 import kotlin.concurrent.schedule
 
@@ -94,6 +83,7 @@ class ActivityCadastro : AppCompatActivity() {
 
     //Função para setar o fragment de acordo com o step atual
     private fun setFragment(step : Int){
+
         val fragmentTransaction = supportFragmentManager.beginTransaction();
         val flFragments = binding.flFragments;
 

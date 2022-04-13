@@ -14,7 +14,7 @@
         android:theme="@style/Theme.EzFix"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".ActivityMain"
+            android:name=".mainscreen.ActivityMain"
             android:exported="false" />
         <activity
             android:name=".ActivityLogin"

@@ -5,15 +5,14 @@ import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.widget.*
-import androidx.appcompat.app.AlertDialog
 import com.ezfix.ezfixaplication.cadastro.ActivityCadastro
 import com.ezfix.ezfixaplication.configuration.HttpRequest
 import com.ezfix.ezfixaplication.configuration.NetworkChecker
 import com.ezfix.ezfixaplication.data.FormLogin
 import com.ezfix.ezfixaplication.data.Token
 import com.ezfix.ezfixaplication.databinding.ActivityLoginBinding
+import com.ezfix.ezfixaplication.mainscreen.ActivityMain
 import retrofit2.Response
 import retrofit2.Call
 import retrofit2.Callback
