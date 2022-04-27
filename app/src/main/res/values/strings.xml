@@ -1,31 +1,29 @@
 <resources>
     <string name="app_name">EzFix</string>
     <!-- Strings relacionadas ao login -->
-    <string name="s_email">Email</string>
-    <string name="s_senha">Senha</string>
-    <string name="s_btn_cadastrese">Cadastre-se!</string>
-    <string name="s_btn_entrar">Entrar</string>
-    <string name="s_gf">Ou entre com e-mail</string>
+    <string name="str_btn_cadastrese">Cadastre-se!</string>
+    <string name="str_btn_entrar">Entrar</string>
+    <string name="str_gf">Ou entre com e-mail</string>
 
     <!-- Strings relacionadas ao cadastro  -->
     <!--    CONTA-->
-    <string name="s_cad_email">Email</string>
-    <string name="s_cad_senha">Senha</string>
-    <string name="s_cad_conSenha">Confirme sua senha</string>
+    <string name="str_email">Email</string>
+    <string name="str_senha">Senha</string>
+    <string name="str_conSenha">Confirme sua senha</string>
     <!--    DADOS PESSOAIS-->
-    <string name="s_cad_nome">Nome completo</string>
-    <string name="s_cad_cpf">CPF</string>
-    <string name="s_cad_nascimento">Data de nascimento</string>
-    <string name="s_cad_telPrimario">Telefone primário</string>
-    <string name="s_cad_telSecundario">Telefone Secundário</string>
+    <string name="str_nome">Nome completo</string>
+    <string name="str_cpf">CPF</string>
+    <string name="str_nascimento">Data de nascimento</string>
+    <string name="str_telPrimario">Telefone primário</string>
+    <string name="str_telSecundario">Telefone Secundário</string>
     <!--    Endereço-->
-    <string name="s_cad_cep">CEP</string>
-    <string name="s_cad_logradouro">Logradouro</string>
-    <string name="s_cad_numero">Nº</string>
-    <string name="s_cad_complemento">Conplemento</string>
-    <string name="s_cad_bairro">Bairro</string>
-    <string name="s_cad_cidade">Cidade</string>
-    <string name="s_cad_estado">Estado</string>
+    <string name="str_cep">CEP</string>
+    <string name="str_logradouro">Logradouro</string>
+    <string name="str_numero">Nº</string>
+    <string name="str_complemento">Conplemento</string>
+    <string name="str_bairro">Bairro</string>
+    <string name="str_cidade">Cidade</string>
+    <string name="str_estado">Estado</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

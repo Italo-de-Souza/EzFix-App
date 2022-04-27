@@ -2,9 +2,11 @@ package com.ezfix.ezfixaplication.configuration
 
 import com.ezfix.ezfixaplication.model.NovoUsuario
 import com.ezfix.ezfixaplication.data.*
+import com.ezfix.ezfixaplication.model.PerfilAssistencia
 import retrofit2.http.*
 import okhttp3.ResponseBody
 import retrofit2.Call
+import retrofit2.Callback
 
 interface Backend {
 
@@ -19,4 +21,7 @@ interface Backend {
 
     @GET("/assistencia/perfil/{id}")
     fun getImagem(@Path("id") id : Int) : Call<ResponseBody>;
+
+    @GET("/assistencia/{id}")
+    fun getAssistencia(@Path("id") id: Int) : Call<PerfilAssistencia>
 }

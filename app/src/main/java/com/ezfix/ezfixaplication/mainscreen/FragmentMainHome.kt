@@ -12,7 +12,6 @@ import android.widget.AbsListView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.ezfix.ezfixaplication.ActivityInicial
 import com.ezfix.ezfixaplication.configuration.HttpRequest
 import com.ezfix.ezfixaplication.data.CardAssist
 import com.ezfix.ezfixaplication.data.CardAssistencia
@@ -29,7 +28,7 @@ class FragmentMainHome : Fragment(), AssistenciaAdapter.OnItemClickListener {
     private lateinit var layoutManager: LinearLayoutManager;
     private lateinit var cardAssistencia: CardAssistencia;
     private var page = 0;
-    private var totalPages = 1;
+    private var totalPages = 0;
     private var isScrolling = false;
 
     override fun onAttach(context: Context) {
@@ -84,14 +83,16 @@ class FragmentMainHome : Fragment(), AssistenciaAdapter.OnItemClickListener {
                     call: Call<CardAssistencia>,
                     response: Response<CardAssistencia>
                 ) {
-                    if (page == 0){
-                        cardAssistencia = response.body()!!;
-                        totalPages      = response.body()!!.totalPages;
-                    } else {
-                        cardAssistencia.content = response.body()!!.content;
+                    if (response.body() != null){
+                        if (page == 0){
+                            cardAssistencia = response?.body()!!;
+                            totalPages      = response?.body()!!.totalPages;
+                        } else {
+                            cardAssistencia.content = response?.body()!!.content;
+                        }
+                        adapter.addLista(cardAssistencia.content)
+                        page++;
                     }
-                    adapter.addLista(cardAssistencia.content)
-                    page++;
                 }
 
                 override fun onFailure(call: Call<CardAssistencia>, t: Throwable) {
@@ -107,8 +108,11 @@ class FragmentMainHome : Fragment(), AssistenciaAdapter.OnItemClickListener {
         recyclerView.adapter = adapter;
     }
 
-    override fun onItemClick(position: CardAssist) {
-        Toast.makeText(context, "clicado: ${position.nomeFantasia}", Toast.LENGTH_LONG).show();
+    override fun onItemClick(card: CardAssist) {
+        Toast.makeText(context, "clicado: ${card.nomeFantasia}", Toast.LENGTH_LONG).show();
+        var intent = Intent(context, ActivityPerfilAssistencia::class.java);
+        intent.putExtra("id", card.id)
+        startActivity(intent)
     }
 
 }

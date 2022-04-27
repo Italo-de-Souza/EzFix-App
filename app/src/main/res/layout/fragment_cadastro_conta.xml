@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".cadastro.FragmentCadastroConta">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -18,8 +18,7 @@
             android:textColorHint="@color/gray"
             app:hintTextColor="@color/black"
             android:textAlignment="textEnd"
-            app:boxStrokeColor="@color/blue"
-            app:layout_constraintTop_toTopOf="parent">
+            app:boxStrokeColor="@color/blue">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_email_cadastro"
@@ -27,10 +26,9 @@
                 android:layout_height="wrap_content"
                 android:drawableStart="@android:drawable/sym_action_email"
                 android:drawableTint="#676767"
-                android:hint="@string/s_cad_email"
+                android:hint="@string/str_email"
                 android:inputType="textEmailAddress"
-                android:textColor="@color/gray"
-                tools:ignore="TextContrastCheck" />
+                android:textColor="@color/gray"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -43,13 +41,13 @@
             android:textAlignment="textEnd"
             android:layout_marginTop="20dp"
             app:boxStrokeColor="@color/blue"
-            app:layout_constraintTop_toBottomOf="@+id/til_email">
+            android:layout_below="@+id/til_email">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_senha_cadastro1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/s_cad_senha"
+                android:hint="@string/str_senha"
                 android:inputType="textPassword"
                 android:textColor="@color/gray"
                 android:drawableStart="@android:drawable/ic_lock_idle_lock"
@@ -66,13 +64,13 @@
             android:textAlignment="textEnd"
             android:layout_marginTop="20dp"
             app:boxStrokeColor="@color/blue"
-            app:layout_constraintTop_toBottomOf="@id/til_senha">
+            android:layout_below="@id/til_senha">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_senha_cadastro2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/s_cad_conSenha"
+                android:hint="@string/str_conSenha"
                 android:inputType="textPassword"
                 android:textColor="@color/gray"
                 android:drawableStart="@android:drawable/ic_lock_idle_lock"
@@ -80,6 +78,6 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
 
 </FrameLayout>

@@ -11,23 +11,21 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.ezfix.ezfixaplication.R
 import com.ezfix.ezfixaplication.configuration.HttpRequest
-import com.ezfix.ezfixaplication.data.CardAssist
+import com.ezfix.ezfixaplication.data.CardPedido
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 
-//class PedidosAdapter(private val cardAssistencia: ArrayList<CardAssist>) :
+class PedidosAdapter(private val onItemClickListener: OnItemClickListener) :
+    RecyclerView.Adapter<PedidosAdapter.ViewHolder>() {
 
-class AssistenciaAdapter(private val onItemClickListener: OnItemClickListener) :
-    RecyclerView.Adapter<AssistenciaAdapter.ViewHolder>() {
-
-    private var cardAssistencia = ArrayList<CardAssist>();
+    private var cardPedido = ArrayList<CardPedido>();
 
 
-    fun addLista(itens : ArrayList<CardAssist>){
-        cardAssistencia.addAll(itens);
+    fun addLista(itens : ArrayList<CardPedido>){
+        cardPedido.addAll(itens);
         notifyDataSetChanged();
     }
 
@@ -38,21 +36,21 @@ class AssistenciaAdapter(private val onItemClickListener: OnItemClickListener) :
 
         viewHolder.itemView.setOnClickListener {
             if (onItemClickListener != null) {
-                onItemClickListener.onItemClick(cardAssistencia[viewHolder.adapterPosition]);
+                onItemClickListener.onItemClick(cardPedido[viewHolder.adapterPosition]);
             }
         }
         return viewHolder;
     }
 
 
-    override fun getItemCount() = cardAssistencia.size;
+    override fun getItemCount() = cardPedido.size;
 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val card = cardAssistencia[position];
+        val card = cardPedido[position];
 
         val http = HttpRequest.requerir();
-        http.getImagem(card.id).enqueue(object : Callback<ResponseBody>{
+        http.getImagem(card.id).enqueue(object : Callback<ResponseBody> {
             override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
 
                 val bmp = BitmapFactory.decodeStream(response.body()!!.byteStream());
@@ -68,24 +66,20 @@ class AssistenciaAdapter(private val onItemClickListener: OnItemClickListener) :
     }
 
     class ViewHolder (cardView : View) : RecyclerView.ViewHolder(cardView){
-        val nomeFantasia    : TextView  = cardView.findViewById(R.id.tv_nome_assistencia);
-        val cidade          : TextView  = cardView.findViewById(R.id.tv_cidade_assistencia);
-        val estado          : TextView  = cardView.findViewById(R.id.tv_estado_assistencia);
-        val rate            : TextView  = cardView.findViewById(R.id.tv_rate_star);
+        val nomeAssistencia : TextView = cardView.findViewById(R.id.tv_nome_assistencia);
+        val statusPedido    : TextView = cardView.findViewById(R.id.tv_status_pedido);
         val image           : ImageView = cardView.findViewById(R.id.iv_img_assistencia);
 
 
-        fun vincula(card : CardAssist, bmp : Bitmap){
-            nomeFantasia.text = card.nomeFantasia;
-            cidade.text = card.cidade;
-            estado.text = card.estado;
-            rate.text = card.avaliacao.toString();
+        fun vincula(card : CardPedido, bmp : Bitmap){
+            nomeAssistencia.text = card.nomeAssistencia;
+            statusPedido.text = card.statuPedido;
             image.setImageBitmap(bmp);
         }
     }
 
     interface OnItemClickListener {
-        fun onItemClick(card: CardAssist);
+        fun onItemClick(card: CardPedido);
     }
 
 }

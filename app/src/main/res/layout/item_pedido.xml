@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/card_assistencia"
+        android:layout_marginVertical="5dp"
+        android:padding="20dp">
+
+        <!--IMAGEM DA ASSISTÊNCIA-->
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_img_assistencia"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:src="@color/black" />
+
+        <!--NOME DA ASSISTÊNCIA-->
+        <TextView
+            android:id="@+id/tv_nome_assistencia"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/iv_img_assistencia"
+            android:singleLine="true"
+            android:text="Assistencia"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <!--SEPARADOR DE TEXTO-->
+        <View
+            android:id="@+id/vline"
+            android:layout_width="2dp"
+            android:layout_height="70dp"
+            android:layout_toRightOf="@id/tv_nome_assistencia"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/black" />
+
+        <!--CIRCULO STATUS-->
+        <View
+            android:id="@+id/ic_status"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:background="@drawable/ic_status"
+            android:layout_below="@id/tv_nome_assistencia"
+            android:layout_toRightOf="@id/iv_img_assistencia"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"/>
+
+        <!--STATUS-->
+        <TextView
+            android:id="@+id/tv_status_pedido"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_nome_assistencia"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/iv_img_assistencia"
+            android:text="Aguardando análise do técnico"
+            android:singleLine="false"
+            android:textColor="@color/black"
+            android:textSize="12sp" />
+
+        <!--DISTÂNCIA-->
+        <TextView
+            android:id="@+id/list_itens"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_nome_assistencia"
+            android:layout_toRightOf="@id/vline"
+            android:layout_marginTop="2dp"
+            android:text="Samsung j6+" />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
