@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none"
+    android:paddingHorizontal="20dp"
+    tools:context=".ActivityOrcamento">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+<!--        ADICIONAR ITEM INICIO-->
+        <RelativeLayout
+            android:id="@+id/rl_add_item"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tv_titulo_add"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/orc_titulo1"
+                android:textSize="18sp"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/view_add"
+                android:layout_width="250dp"
+                android:layout_height="5dp"
+                android:layout_below="@id/tv_titulo_add"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="50dp"
+                android:background="@color/dark_blue"/>
+
+<!--            PRODUTO-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_produto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:hint="@string/orc_produto"
+                android:textColorHint="@color/gray"
+                app:hintTextColor="@color/black"
+                app:boxStrokeColor="@color/blue"
+                android:layout_marginBottom="15dp"
+                android:layout_below="@id/view_add">
+
+                <AutoCompleteTextView
+                    android:id="@+id/tv_produto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/gray"
+                    android:inputType="none"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+<!--            MARCA-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_marca"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:hint="@string/orc_marca"
+                android:textColorHint="@color/gray"
+                app:hintTextColor="@color/black"
+                app:boxStrokeColor="@color/blue"
+                android:layout_marginBottom="15dp"
+                android:layout_below="@id/til_produto">
+
+                <AutoCompleteTextView
+                    android:id="@+id/tv_marca"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/gray"
+                    android:inputType="none"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+<!--            MODELO-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_modelo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:hint="@string/orc_modelo"
+                android:textColorHint="@color/gray"
+                app:hintTextColor="@color/black"
+                app:boxStrokeColor="@color/blue"
+                android:layout_marginBottom="15dp"
+                android:layout_below="@id/til_marca">
+
+                <AutoCompleteTextView
+                    android:id="@+id/tv_modelo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/gray"
+                    android:inputType="none"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+<!--         OBSERVAÇÕES-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_observacao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:hint="@string/orc_observacao"
+                android:textColorHint="@color/gray"
+                app:hintTextColor="@color/black"
+                app:boxStrokeColor="@color/blue"
+                android:layout_marginBottom="15dp"
+                android:layout_below="@id/til_modelo">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tv_observacao"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/gray"
+                    android:inputType="none"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/btn_adicionar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/til_observacao"
+                android:layout_alignParentEnd="true"
+                android:backgroundTint="@color/dark_blue"
+                android:text="@string/str_btn_adicionar"
+                android:textSize="12sp" />
+
+        </RelativeLayout>
+<!--        ADICIONAR ITEM FIM-->
+
+<!--        LISTA DE PEDIDOS INICIO-->
+        <RelativeLayout
+            android:id="@+id/rl_lista_itens"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tv_titulo_lista"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:text="@string/orc_titulo2"
+                android:textAlignment="center"/>
+
+            <View
+                android:id="@+id/view_lista"
+                android:layout_width="250dp"
+                android:layout_height="5dp"
+                android:layout_below="@id/tv_titulo_lista"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="50dp"
+                android:background="@color/dark_blue"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/view_lista"
+                tools:listitem="@layout/item_orcamento"/>
+
+            <Button
+                android:id="@+id/btn_concluir"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/str_btn_concluir"
+                android:textSize="12sp"
+                android:layout_below="@id/recyclerView"
+                android:layout_centerHorizontal="true"
+                android:backgroundTint="@color/dark_blue"/>
+
+        </RelativeLayout>
+<!--        LISTA DE PEDIDOS FIM-->
+
+    </RelativeLayout>
+
+</ScrollView>

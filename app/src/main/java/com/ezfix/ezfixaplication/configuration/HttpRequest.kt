@@ -13,7 +13,7 @@ import java.net.URL
 import java.util.concurrent.TimeUnit
 
 object HttpRequest {
-    var constants = Constants();
+//    var constants = Constants();
     fun requerir(): Backend{
         val okHttpClient = OkHttpClient.Builder()
             .readTimeout(60, TimeUnit.SECONDS)
@@ -22,7 +22,7 @@ object HttpRequest {
         val gson = GsonBuilder().setLenient().create();
 
         val retrofit = Retrofit.Builder()
-            .baseUrl(constants.IP_BACKEND)
+            .baseUrl(Constants.IP_BACKEND)
             .addConverterFactory(GsonConverterFactory.create(gson))
             .client(okHttpClient)
             .build();

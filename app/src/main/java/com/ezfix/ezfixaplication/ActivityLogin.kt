@@ -7,12 +7,15 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.*
 import com.ezfix.ezfixaplication.cadastro.ActivityCadastro
+import com.ezfix.ezfixaplication.configuration.Constants
 import com.ezfix.ezfixaplication.configuration.HttpRequest
 import com.ezfix.ezfixaplication.configuration.NetworkChecker
 import com.ezfix.ezfixaplication.data.FormLogin
 import com.ezfix.ezfixaplication.data.Token
+import com.ezfix.ezfixaplication.data.UserLogado
 import com.ezfix.ezfixaplication.databinding.ActivityLoginBinding
 import com.ezfix.ezfixaplication.mainscreen.ActivityMain
+import org.jetbrains.anko.toast
 import retrofit2.Response
 import retrofit2.Call
 import retrofit2.Callback
@@ -65,6 +68,8 @@ class ActivityLogin : AppCompatActivity(){
                     tvLoginReult.text = "Email ou senha incorreta";
                 } else {
                     var token : Token = response.body()!!;
+                    Constants.token = token;
+                    buscaDadosLogado(token);
                     intent.putExtra("token", token)
                     tvLoginReult.text = "Usuário logado";
                     irMainActivity();
@@ -82,6 +87,20 @@ class ActivityLogin : AppCompatActivity(){
     private fun irMainActivity(){
         startActivity( Intent(this, ActivityMain::class.java) );
         finish();
+    }
+
+    private fun buscaDadosLogado(token : Token){
+        val http = HttpRequest.requerir();
+        http.getLogado("${token.tipo} ${token.token}").enqueue(object : Callback<UserLogado> {
+            override fun onResponse(call: Call<UserLogado>, response: Response<UserLogado>) {
+                Constants.userLogado = response.body()!!;
+            }
+
+            override fun onFailure(call: Call<UserLogado>, t: Throwable) {
+                Toast.makeText(baseContext, "onFailure", Toast.LENGTH_LONG).show()
+            }
+        })
+
     }
 
 

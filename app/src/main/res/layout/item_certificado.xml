@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardElevation="5dp"
+    android:layout_margin="10dp"
+    app:cardCornerRadius="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/rl_nome_curso"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:background="@color/blue_card">
+
+            <TextView
+                android:id="@+id/tv_nome_curso"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"/>
+
+            <ImageView
+                android:id="@+id/ic_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_arrow"
+                android:rotation="-90"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"/>
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/rl_info_curso"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:backgroundTint="@color/white"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tv_carga_horaria"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:text="@string/cert_carga_horaria"/>
+
+            <TextView
+                android:id="@+id/tv_data_inicio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:text="@string/cert_data_inicio"
+                android:layout_below="@id/tv_carga_horaria"/>
+
+            <TextView
+                android:id="@+id/tv_data_fim"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:layout_below="@id/tv_carga_horaria"
+                android:layout_alignParentEnd="true"
+                android:text="@string/cert_data_fim"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+
+
+
+</androidx.cardview.widget.CardView>

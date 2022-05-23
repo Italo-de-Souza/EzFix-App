@@ -1,9 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".mainscreen.FragmentMainPerfil">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_perfil"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@color/gray"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="10dp"/>
+
+        <TextView
+            android:id="@+id/tv_nome_perfil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nome da Pessoa"
+            android:layout_below="@id/img_perfil"
+            android:textSize="20sp"
+            android:layout_centerHorizontal="true"/>
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_email_senha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_nome_perfil"
+            android:layout_marginTop="50dp"
+            android:animateLayoutChanges="true"
+            android:background="@drawable/card_perfil_assistencia"
+            app:cardElevation="10dp"
+            app:cardUseCompatPadding="true"
+            app:contentPadding="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email e senha"
+                android:textSize="20sp" />
+
+            <include
+                android:id="@+id/inc_email_senha"
+                layout="@layout/fragment_cadastro_conta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:visibility="gone" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_dados_pessoais"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardUseCompatPadding="true"
+            android:animateLayoutChanges="true"
+            app:contentPadding="10dp"
+            android:background="@drawable/card_perfil_assistencia"
+            android:layout_below="@id/cv_email_senha"
+            app:cardElevation="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dados Pessoais"
+                android:textSize="20sp"/>
+
+            <include layout="@layout/fragment_cadastro_dados"
+                android:id="@+id/inc_dados_pessoais"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:visibility="gone"/>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_endereco"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardUseCompatPadding="true"
+            app:contentPadding="10dp"
+            android:animateLayoutChanges="true"
+            android:background="@drawable/card_perfil_assistencia"
+            android:layout_below="@id/cv_dados_pessoais"
+            app:cardElevation="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Endereço"
+                android:textSize="20sp"/>
+
+            <include layout="@layout/fragment_cadastro_endereco"
+                android:id="@+id/inc_endereco"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:visibility="gone"/>
+
+        </androidx.cardview.widget.CardView>
+
+
+        <Button
+            android:id="@+id/btn_sair"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/cv_endereco"
+            android:layout_marginTop="50dp"
+            android:text="SAIR"
+            android:backgroundTint="@color/red"
+            android:textSize="20sp"
+            android:paddingHorizontal="50dp"/>
+
+
+
+    </RelativeLayout>
+
+    <!--    <include layout="@layout/fragment_cadastro_conta"-->
+    <!--        android:id="@+id/teste"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@id/tv_nome_perfil"/>-->
+
+</ScrollView>

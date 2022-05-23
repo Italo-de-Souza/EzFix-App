@@ -1,25 +1,39 @@
 package com.ezfix.ezfixaplication.mainscreen
 
+import android.content.Intent
 import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log.d
+import android.view.View
+import android.widget.Button
 import android.widget.ImageView
+import android.widget.RelativeLayout
 import android.widget.TextView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.ezfix.ezfixaplication.ActivityOrcamento
+import com.ezfix.ezfixaplication.R
 import com.ezfix.ezfixaplication.configuration.HttpRequest
 import com.ezfix.ezfixaplication.databinding.ActivityPerfilAssistenciaBinding
+import com.ezfix.ezfixaplication.model.Certificado
 import com.ezfix.ezfixaplication.model.PerfilAssistencia
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class ActivityPerfilAssistencia : AppCompatActivity() {
+class ActivityPerfilAssistencia : AppCompatActivity(), CertificadoAdapter.OnItemClickListener {
 
     private lateinit var binding : ActivityPerfilAssistenciaBinding;
     private lateinit var tvAvaliacao : TextView;
     private lateinit var tvNomeFantasia : TextView;
     private lateinit var ivImgAssistencia : ImageView;
+    private lateinit var btnOrcamento : Button;
+    private lateinit var recyclerView: RecyclerView;
+
+    private lateinit var adapter : CertificadoAdapter;
+    private lateinit var layoutManager: LinearLayoutManager;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,12 +43,21 @@ class ActivityPerfilAssistencia : AppCompatActivity() {
 
         var id = intent.getIntExtra("id", 0);
 
+        recyclerView = binding.recyclerView;
+        layoutManager = LinearLayoutManager(this)
+        recyclerView.layoutManager = layoutManager;
+        adapter = CertificadoAdapter(this)
+        recyclerView.adapter = adapter;
+
         tvAvaliacao = binding.tvRateStar;
         tvNomeFantasia = binding.tvNomeAssistencia;
         ivImgAssistencia = binding.ivImgAssistencia;
+        btnOrcamento = binding.btnOcarmento;
 
+        btnOrcamento.setOnClickListener { startActivity(Intent(this, ActivityOrcamento::class.java)) }
+
+//        setRecycleView();
         buscaDados(id);
-
         setContentView(view)
     }
 
@@ -51,10 +74,14 @@ class ActivityPerfilAssistencia : AppCompatActivity() {
                 call: Call<PerfilAssistencia>,
                 response: Response<PerfilAssistencia>
             ) {
-                d("api", "OnResponse")
-                var perfilAssistencia = PerfilAssistencia()
-                perfilAssistencia = response.body()!!;
-                preencheCampos(perfilAssistencia);
+                if (response.isSuccessful){
+                    d("api", "OnResponse")
+                    var perfilAssistencia: PerfilAssistencia = response.body()!!;
+                    preencheCampos(perfilAssistencia);
+                    if (perfilAssistencia.certificados !== null){
+                        adapter.addLista(perfilAssistencia.certificados);
+                    }
+                }
             }
 
             override fun onFailure(call: Call<PerfilAssistencia>, t: Throwable) {
@@ -75,4 +102,15 @@ class ActivityPerfilAssistencia : AppCompatActivity() {
             }
         })
     }
+
+//    fun setRecycleView(){
+//
+//    }
+
+    override fun onItemClick(card: Certificado) {
+        card.alternaInfo(!card.isVisible());
+        adapter.notifyDataSetChanged();
+    }
+
+
 }
