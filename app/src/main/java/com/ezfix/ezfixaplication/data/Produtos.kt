@@ -11,6 +11,6 @@ class Produtos {
 
 
 class InfoProduto{
-    var id : Int = 0
+    var id : Long = 0
     lateinit var nome : String
 }

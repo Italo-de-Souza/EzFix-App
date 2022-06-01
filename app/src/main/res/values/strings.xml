@@ -20,12 +20,11 @@
     <string name="str_cep">CEP</string>
     <string name="str_logradouro">Logradouro</string>
     <string name="str_numero">Nº</string>
-    <string name="str_complemento">Conplemento</string>
+    <string name="str_complemento">Complemento</string>
     <string name="str_bairro">Bairro</string>
     <string name="str_cidade">Cidade</string>
     <string name="str_estado">Estado</string>
 
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <!--    CERTIFICADO-->
     <string name="cert_data_fim">Data fim:</string>
     <string name="cert_data_inicio">Data início:</string>
@@ -43,22 +42,19 @@
     <string name="str_btn_concluir">Concluir</string>
     <string name="str_btn_adicionar">Adicionar</string>
     <string name="btn_detalhes">detalhes</string>
+    <string name="data_pedido">Data do pedido:</string>
+    <string name="subtotal">Subtotal</string>
+    <string name="frete">Frete</string>
+    <string name="total">Total</string>
+    <string name="recusar">recusar</string>
+    <string name="confirmar">confirmar</string>
+    <string name="nao_cadastrado">Ainda não tem cadastro?</string>
+    <string name="efetuar_cadastro">efetuar cadastro</string>
 
-    <string-array name="produtos">
-        <item>Celular</item>
-    </string-array>
-    <string-array name="marca">
-        <item>Samsung</item>
-        <item>Motorola</item>
-        <item>Xiaomi</item>
-        <item>Nokia</item>
-        <item>Apple</item>
-    </string-array>
-    <string-array name="problema">
-        <item>Tela quebrada</item>
-        <item>Não liga</item>
-        <item>Sem som</item>
-        <item>Lentidão</item>
-    </string-array>
+<!--    Relacionadas ao MENU-->
+    <string name="menu_buscar">Buscar</string>
+    <string name="menu_inicio">Início</string>
+    <string name="menu_pedidos">Pedidos</string>
+    <string name="menu_perfil">Perfil</string>
 
 </resources>

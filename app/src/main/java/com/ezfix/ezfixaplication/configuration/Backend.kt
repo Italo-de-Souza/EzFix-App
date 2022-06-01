@@ -23,10 +23,10 @@ interface Backend {
     fun getCardsAssistencias(@Query("page") page : Int): Call<CardAssistencia>;
 
     @GET("/assistencia/perfil/{id}")
-    fun getImagem(@Path("id") id : Int) : Call<ResponseBody>;
+    fun getImagem(@Path("id") id : Long) : Call<ResponseBody>;
 
     @GET("/assistencia/perfil-assistencia/{id}")
-    fun getAssistencia(@Path("id") id: Int) : Call<PerfilAssistencia>
+    fun getAssistencia(@Path("id") id: Long) : Call<PerfilAssistencia>
 
     @GET("/solicitante/perfil")
     fun getLogado(@Header("Authorization") token: String) : Call<UserLogado>
@@ -39,10 +39,27 @@ interface Backend {
     fun pathFotoPerfil( @Part img : MultipartBody.Part,
                         @Header("Authorization") token: String) : Call<ResponseBody>
 
+    @GET("/orcamentos/pedidos")
+    fun getPedidos(@Header("Authorization") token: String) : Call<ArrayList<CardPedido>>
+
     @GET("/produtos")
     fun getProdutos() : Call<ArrayList<Produtos>>
 
-    @GET("/orcamentos/pedidos")
-    fun getPedidos(@Header("Authorization") token: String) : Call<ArrayList<CardPedido>>
+    @GET("/produtos/tipos")
+    fun getProdTipos() : Call<ArrayList<InfoProduto>>
+
+    @GET("/produtos/marcas/{id}")
+    fun getProdMarcas(@Path ("id") id : Long) : Call<ArrayList<InfoProduto>>
+
+    @GET("/produtos/modelos/{idTipo}/{idMarca}")
+    fun getProdModelos(@Path ("idTipo") idTipo : Long,
+                       @Path ("idMarca") idMarca : Long) : Call<ArrayList<InfoProduto>>
+
+    @POST("orcamentos/novo/{idAssistencia}")
+    fun sendOrcamento(@Body orcamento: ArrayList<Orcamento>,
+                      @Header("Authorization") token: String,
+                      @Path("idAssistencia") idAssistencia : Long) : Call<ResponseBody>;
+
+
 
 }

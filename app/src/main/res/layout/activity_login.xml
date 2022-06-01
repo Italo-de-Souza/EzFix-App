@@ -149,7 +149,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Ainda não tem cadastro?"
+                    android:text="@string/nao_cadastrado"
                     android:textColor="@color/black"/>
 
                 <Button

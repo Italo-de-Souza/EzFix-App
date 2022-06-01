@@ -170,7 +170,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/view_lista"
+                tools:itemCount="1"
                 tools:listitem="@layout/item_orcamento"/>
+
+            <ImageView
+                android:id="@+id/ic_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_add"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/recyclerView"/>
 
             <Button
                 android:id="@+id/btn_concluir"
@@ -178,7 +187,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/str_btn_concluir"
                 android:textSize="12sp"
-                android:layout_below="@id/recyclerView"
+                android:layout_marginTop="20dp"
+                android:layout_below="@id/ic_add"
                 android:layout_centerHorizontal="true"
                 android:backgroundTint="@color/dark_blue"/>
 

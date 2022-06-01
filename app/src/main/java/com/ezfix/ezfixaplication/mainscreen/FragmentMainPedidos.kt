@@ -19,8 +19,6 @@ import java.util.ArrayList
 
 class FragmentMainPedidos : Fragment() {
 
-//class FragmentMainPedidos : Fragment() {
-
     private lateinit var binding : FragmentMainPedidosBinding;
     private lateinit var recyclerView: RecyclerView;
     private lateinit var adapter : PedidosAdapter;
@@ -69,11 +67,5 @@ class FragmentMainPedidos : Fragment() {
         recyclerView.adapter = adapter;
     }
 
-//    override fun onItemClick(card: CardPedido) {
-//        if (card.isBtnClicked()){
-//            Toast.makeText(context, "${card.idOrcamento}", Toast.LENGTH_LONG).show();
-//        }
-//
-//    }
 
 }

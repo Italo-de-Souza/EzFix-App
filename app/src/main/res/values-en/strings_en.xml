@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">EzFix</string>
+    <!-- Strings relacionadas ao login -->
+    <string name="str_btn_cadastrese">Logon!</string>
+    <string name="str_btn_entrar">Login</string>
+    <string name="str_gf">Or with your email</string>
+    <string name="nao_cadastrado">Don\'t have a registration yet?</string>
+    <string name="efetuar_cadastro">Resgister</string>
+
+    <!-- Strings relacionadas ao cadastro  -->
+    <!--    CONTA-->
+    <string name="str_email">Email</string>
+    <string name="str_senha">Password</string>
+    <string name="str_conSenha">Confirm password</string>
+    <!--    DADOS PESSOAIS-->
+    <string name="str_nome">Full name</string>
+    <string name="str_cpf">SSN</string>
+    <string name="str_nascimento">Birthday</string>
+    <string name="str_telPrimario">Primary phone</string>
+    <string name="str_telSecundario">Secundary phone</string>
+    <!--    Endereço-->
+    <string name="str_cep">ZIP Code</string>
+    <string name="str_logradouro">Street</string>
+    <string name="str_numero">Number</string>
+    <string name="str_complemento">Complement</string>
+    <string name="str_bairro">Neighborhood</string>
+    <string name="str_cidade">City</string>
+    <string name="str_estado">Estate</string>
+
+    <!--    CERTIFICADO-->
+    <string name="cert_data_fim">End:</string>
+    <string name="cert_data_inicio">Start:</string>
+    <string name="cert_carga_horaria">Workload:</string>
+    <!--    ORÇAMENTO-->
+    <string name="orc_titulo1">Add items</string>
+    <string name="orc_produto">Product</string>
+    <string name="orc_marca">Brand</string>
+    <string name="orc_modelo">Model</string>
+    <string name="orc_problema">Problem</string>
+    <string name="orc_observacao">Description</string>
+    <string name="orc_titulo2">Adicione os itens</string>
+
+    <string name="erro_campo">Required</string>
+    <string name="str_btn_concluir">Finish</string>
+    <string name="str_btn_adicionar">Add</string>
+    <string name="btn_detalhes">details</string>
+    <string name="data_pedido">Order date:</string>
+    <string name="subtotal">Subtotal</string>
+    <string name="frete">Shipping</string>
+    <string name="total">Total</string>
+    <string name="recusar">refuse</string>
+    <string name="confirmar">confirm</string>
+
+
+
+    <!--    Relacionadas ao MENU-->
+    <string name="menu_buscar">Search</string>
+    <string name="menu_inicio">Home</string>
+    <string name="menu_pedidos">Orders</string>
+    <string name="menu_perfil">Profile</string>
+
+</resources>

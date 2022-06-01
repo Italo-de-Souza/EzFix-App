@@ -5,3 +5,14 @@ data class CardOrcamento(
     val produto : String,
     val observacao : String
 )
+
+data class Orcamento(
+    val descricao : String,
+    val produto : IdProduto
+)
+
+data class IdProduto (
+    val id : Long
+)
+
+

@@ -82,12 +82,14 @@ class PedidosAdapter(private val context: Context?) :
         val statusPedido    : TextView = cardView.findViewById(R.id.tv_status_pedido);
         val image           : ImageView = cardView.findViewById(R.id.iv_img_assistencia);
         val btnDetalhes     : Button    = cardView.findViewById(R.id.btn_detalhes);
+        val listItens       : TextView  = cardView.findViewById(R.id.list_itens);
 
 
         fun vincula(card : CardPedido, bmp : Bitmap){
             nomeAssistencia.text = card.nomeAssistencia;
             statusPedido.text = card.status;
             image.setImageBitmap(bmp);
+            listItens.text = "${card.itens[0].marca} ${card.itens[0].modelo}"
         }
     }
 

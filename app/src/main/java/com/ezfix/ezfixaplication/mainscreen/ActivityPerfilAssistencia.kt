@@ -41,22 +41,22 @@ class ActivityPerfilAssistencia : AppCompatActivity(), CertificadoAdapter.OnItem
         binding = ActivityPerfilAssistenciaBinding.inflate(layoutInflater);
         val view = binding.root;
 
-        var id = intent.getIntExtra("id", 0);
+        var id = intent.getLongExtra("id", 0);
 
         recyclerView = binding.recyclerView;
-        layoutManager = LinearLayoutManager(this)
-        recyclerView.layoutManager = layoutManager;
-        adapter = CertificadoAdapter(this)
-        recyclerView.adapter = adapter;
 
         tvAvaliacao = binding.tvRateStar;
         tvNomeFantasia = binding.tvNomeAssistencia;
         ivImgAssistencia = binding.ivImgAssistencia;
         btnOrcamento = binding.btnOcarmento;
 
-        btnOrcamento.setOnClickListener { startActivity(Intent(this, ActivityOrcamento::class.java)) }
+        btnOrcamento.setOnClickListener {
+            var intent = Intent(this, ActivityOrcamento::class.java)
+            intent.putExtra("idAssistencia", id.toLong());
+            startActivity(intent)
+        }
 
-//        setRecycleView();
+        setRecycleView();
         buscaDados(id);
         setContentView(view)
     }
@@ -66,7 +66,7 @@ class ActivityPerfilAssistencia : AppCompatActivity(), CertificadoAdapter.OnItem
         tvNomeFantasia.text = perfilAssistencia.nomeFantasia;
     }
 
-    fun buscaDados(id:Int){
+    fun buscaDados(id:Long){
 
         var http = HttpRequest.requerir()
         http.getAssistencia(id).enqueue(object : Callback<PerfilAssistencia> {
@@ -103,9 +103,12 @@ class ActivityPerfilAssistencia : AppCompatActivity(), CertificadoAdapter.OnItem
         })
     }
 
-//    fun setRecycleView(){
-//
-//    }
+    fun setRecycleView(){
+        layoutManager = LinearLayoutManager(this)
+        recyclerView.layoutManager = layoutManager;
+        adapter = CertificadoAdapter(this)
+        recyclerView.adapter = adapter;
+    }
 
     override fun onItemClick(card: Certificado) {
         card.alternaInfo(!card.isVisible());

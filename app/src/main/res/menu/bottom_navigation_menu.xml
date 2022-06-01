@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/im_home"
-        android:title="Início"
+        android:title="@string/menu_inicio"
         android:icon="@drawable/ic_home"/>
 
     <item android:id="@+id/im_buscar"
-        android:title="Buscar"
+        android:title="@string/menu_buscar"
         android:icon="@drawable/ic_search"/>
 
     <item android:id="@+id/im_pedidos"
-        android:title="Pedidos"
+        android:title="@string/menu_pedidos"
         android:icon="@drawable/ic_pedidos"/>
 
     <item android:id="@+id/im_profile"
-        android:title="Perfil"
+        android:title="@string/menu_perfil"
         android:icon="@drawable/ic_person"/>
 
 </menu>

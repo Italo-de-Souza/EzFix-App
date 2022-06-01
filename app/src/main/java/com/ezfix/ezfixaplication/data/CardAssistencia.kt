@@ -8,7 +8,7 @@ data class CardAssistencia(
     ) : Serializable;
 
 data class CardAssist (
-    var id : Int = 0,
+    var id : Long = 0,
     var nomeFantasia : String = "",
     var avaliacao : Double = 0.0,
     var cidade : String = "",

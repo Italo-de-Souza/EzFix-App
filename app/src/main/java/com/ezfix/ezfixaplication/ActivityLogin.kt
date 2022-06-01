@@ -1,6 +1,7 @@
 package com.ezfix.ezfixaplication
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -29,6 +30,7 @@ class ActivityLogin : AppCompatActivity(){
     private lateinit var tvLoginReult : TextView;
     private lateinit var etEmail : EditText;
     private lateinit var etSenha : EditText;
+    private lateinit var preferencias: SharedPreferences
 
     val networkChecker by lazy {
         NetworkChecker(getSystemService(ConnectivityManager::class.java), this);
@@ -39,6 +41,8 @@ class ActivityLogin : AppCompatActivity(){
         binding = ActivityLoginBinding.inflate(layoutInflater);
         val view = binding.root;
         setContentView(view);
+
+        preferencias = getSharedPreferences("token", MODE_PRIVATE)
 
         btnCadastrar = binding.btnCadastrese;
         btnEntrar    = binding.btnEntrar;
@@ -51,15 +55,12 @@ class ActivityLogin : AppCompatActivity(){
             startActivity( Intent(this, ActivityCadastro::class.java) );
             finish();
         }
-
         btnEntrar.setOnClickListener{
             networkChecker.performActionIfConnected { login() }
         }
     }
 
-
     private fun login(){
-
         val userLogin = FormLogin(etEmail.text.toString(), etSenha.text.toString());
         val http = HttpRequest.requerir();
         http.logar(userLogin).enqueue( object : Callback<Token> {
@@ -67,6 +68,10 @@ class ActivityLogin : AppCompatActivity(){
                 if (response.code() == 403){
                     tvLoginReult.text = "Email ou senha incorreta";
                 } else {
+                    val tokenOff = preferencias.edit();
+                    tokenOff.putString("token", response.body()?.token);
+                    tokenOff.commit()
+
                     var token : Token = response.body()!!;
                     Constants.token = token;
                     buscaDadosLogado(token);
