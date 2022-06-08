@@ -51,10 +51,35 @@
     <string name="nao_cadastrado">Ainda não tem cadastro?</string>
     <string name="efetuar_cadastro">efetuar cadastro</string>
 
-<!--    Relacionadas ao MENU-->
+    <!--    Relacionadas ao MENU-->
     <string name="menu_buscar">Buscar</string>
     <string name="menu_inicio">Início</string>
     <string name="menu_pedidos">Pedidos</string>
     <string name="menu_perfil">Perfil</string>
+    <string name="id_pedido">Pedido</string>
+    <string name="resumo">Resumo</string>
+
+    <string name="entragar_retirar">Entregar e retirar pessoalmente</string>
+    <string name="btn_finalizar">finalizar</string>
+    <!--    ANDAMENTO PEDIDO-->
+    <string name="entregue_equipamento">Equipamento entregue</string>
+    <string name="pedido_pronto">Pedido pronto</string>
+    <string name="pedido_retirado">Pedido retirado</string>
+    <string name="avaliacao">Avaliação</string>
+    <string name="avaliar">Avaliar</string>
+
+    <!--STATUS PEDIDO-->
+    <string name="aguardando_tecnico">aguardando resposta tecnico</string>
+    <string name="aguardando_solicitante">aguardando sua resposta</string>
+    <string name="aguardando_envio">aguardando envio</string>
+    <string name="reparo_andamento">reparo em andamento</string>
+    <string name="reparo_concluido">reparo conluido</string>
+    <string name="aguardando_avaliacao">aguardando avalicao</string>
+    <string name="concluido">concluido</string>
+
+    <string name="comentario">comentário</string>
+    <string name="enviar">enviar</string>
+    <string name="orcamento">Novo orçamento</string>
+    <string name="busca">Buscar assistência</string>
 
 </resources>

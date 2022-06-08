@@ -29,7 +29,7 @@
                 android:id="@+id/tv_nome_assistencia"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="10dp"
                 android:layout_toRightOf="@id/iv_img_assistencia"
                 android:singleLine="true"
                 android:text="Assistencia"
@@ -44,7 +44,7 @@
                 android:layout_height="70dp"
                 android:layout_marginLeft="0dp"
                 android:layout_marginRight="10dp"
-                android:layout_toRightOf="@id/tv_nome_assistencia"
+                android:layout_toRightOf="@id/tv_status_pedido"
                 android:background="@color/black" />
 
             <!--CIRCULO STATUS-->
@@ -76,10 +76,10 @@
                 android:id="@+id/list_itens"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:singleLine="true"
                 android:layout_below="@id/tv_nome_assistencia"
                 android:layout_marginTop="2dp"
                 android:layout_toRightOf="@id/vline"
+                android:singleLine="true"
                 android:text="Samsung j6+" />
 
 

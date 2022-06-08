@@ -62,7 +62,7 @@
             android:layout_alignBottom="@id/tv_estado_assistencia"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="10dp"
-            android:layout_toRightOf="@id/tv_estado_assistencia"
+            android:layout_toRightOf="@id/tv_cidade_assistencia"
             android:background="@color/black" />
 
 <!--DISTÂNCIA-->

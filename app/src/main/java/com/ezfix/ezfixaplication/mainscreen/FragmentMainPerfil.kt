@@ -1,7 +1,10 @@
 package com.ezfix.ezfixaplication.mainscreen
 
+import android.app.Activity
 import android.app.Activity.RESULT_OK
 import android.content.Intent
+import android.content.SharedPreferences
+import android.content.pm.PackageManager
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
@@ -27,10 +30,15 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.io.File
 import android.provider.MediaStore
+import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import com.ezfix.ezfixaplication.databinding.FragmentCadastroContaBinding
 import com.ezfix.ezfixaplication.databinding.FragmentCadastroDadosBinding
 import com.ezfix.ezfixaplication.databinding.FragmentCadastroEnderecoBinding
+import okhttp3.internal.Util
+import java.util.jar.Manifest
 
 class FragmentMainPerfil : Fragment() {
 
@@ -44,6 +52,7 @@ class FragmentMainPerfil : Fragment() {
     private lateinit var incDadosPessoais   : FragmentCadastroDadosBinding;
     private lateinit var incEndereco        : FragmentCadastroEnderecoBinding;
     private lateinit var btnSair : Button;
+    private lateinit var preferencias : SharedPreferences;
 
 
     override fun onCreateView(
@@ -64,6 +73,7 @@ class FragmentMainPerfil : Fragment() {
         incEndereco         = binding.incEndereco;
         btnSair             = binding.btnSair;
 
+        preferencias = requireActivity().getSharedPreferences("token", AppCompatActivity.MODE_PRIVATE)
 
         cvEmailSenha.setOnClickListener {
             if (incEmailSenha.root.visibility == View.VISIBLE){
@@ -101,12 +111,17 @@ class FragmentMainPerfil : Fragment() {
 
 //      ONCLICK DA IMAGEM
         imgPerfil.setOnClickListener {
+            if (!isPermitted()){
+                requestPermission()
+            }
+            else{
                 val intent = Intent(Intent.ACTION_PICK);
                 intent.type = "image/*"
                 novaImagem.launch(intent);
             }
+        }
 
-        btnSair.setOnClickListener{efetuarLogOut()}
+        btnSair.setOnClickListener{ efetuarLogOut() }
 
         setInfos();
         getFotoPerfil();
@@ -212,10 +227,28 @@ class FragmentMainPerfil : Fragment() {
 
 //    LOGOFF
     private fun efetuarLogOut(){
-        var intent = Intent(context, ActivityInicial::class.java)
-        Toast.makeText(context, "Saiu", Toast.LENGTH_LONG).show();
-        startActivity(intent);
+        val tokenOff = preferencias.edit().clear();
+        tokenOff.commit();
+        startActivity(Intent(context, ActivityInicial::class.java));
         activity?.finish()
     }
+
+    private fun isPermitted(): Boolean{
+        return ContextCompat.checkSelfPermission(
+            requireActivity().baseContext, android.Manifest.permission.READ_EXTERNAL_STORAGE
+        ) == PackageManager.PERMISSION_GRANTED;
+    }
+
+    private fun requestPermission(){
+        ActivityCompat.requestPermissions(
+            requireActivity(),
+        arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE, android.Manifest.permission.MANAGE_EXTERNAL_STORAGE),
+        READ_EXTERNAL_STORAGE_PERMISSION_CODE)
+    }
+
+    companion object{
+        private const val READ_EXTERNAL_STORAGE_PERMISSION_CODE = 1000;
+    }
+
 
 }

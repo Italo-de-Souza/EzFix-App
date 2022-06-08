@@ -60,6 +60,17 @@ interface Backend {
                       @Header("Authorization") token: String,
                       @Path("idAssistencia") idAssistencia : Long) : Call<ResponseBody>;
 
+    @GET("/orcamentos/{id}")
+    fun buscarDetalhePedido(@Path("id") idPedido : Long,
+                            @Header("Authorization") token : String) : Call<PedidoDetalhe>
 
+    @PUT("/orcamentos/atualizar-status/{id}")
+    fun atualizaStatus(@Header("Authorization") token : String,
+                       @Path("id") id : Long,
+                       @Body status : StatusPedido) : Call<ResponseBody>;
+
+    @POST("/comentario")
+    fun enviarComentario( @Header("Authorization" ) token : String,
+                          @Body comentario : Comentario ) : Call<ResponseBody>;
 
 }

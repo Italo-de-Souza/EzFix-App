@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/detalhe_pedido"
+    android:backgroundTint="@color/white"
+    android:padding="50dp"
+    tools:context=".RateDialogAlert"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <RatingBar
+        android:id="@+id/rate_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tl_comentario"
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:textColorHint="@color/gray"
+        app:hintTextColor="@color/black"
+        android:textAlignment="textEnd"
+        android:paddingHorizontal="20dp"
+        app:boxStrokeColor="@color/blue"
+        app:counterEnabled="true"
+        app:counterMaxLength="50">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_comentario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_rate_review"
+            android:drawablePadding="10dp"
+            android:drawableTint="#676767"
+            android:hint="@string/comentario"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/gray"
+            tools:ignore="TextContrastCheck" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btn_enviar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/enviar"/>
+
+</LinearLayout>

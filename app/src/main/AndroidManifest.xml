@@ -19,16 +19,31 @@
         android:theme="@style/Theme.EzFix"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".RateDialogAlert"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityAndamentoPedido"
+            android:parentActivityName=".mainscreen.ActivityMain"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityConfirmaPedido"
+            android:parentActivityName=".ActivityDetalhePedido"
+            android:exported="false" />
+        <activity
             android:name=".ActivityDetalhePedido"
+            android:parentActivityName=".mainscreen.ActivityMain"
             android:exported="false" />
         <activity
             android:name=".ActivityOrcamento"
+            android:parentActivityName=".mainscreen.ActivityPerfilAssistencia"
             android:exported="false" />
         <activity
             android:name=".mainscreen.ActivityPerfilAssistencia"
+            android:parentActivityName=".mainscreen.ActivityMain"
             android:exported="false" />
         <activity
             android:name=".mainscreen.ActivityMain"
+            android:launchMode="singleTop"
             android:exported="false" />
         <activity
             android:name=".ActivityLogin"

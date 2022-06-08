@@ -51,6 +51,8 @@
     <string name="total">Total</string>
     <string name="recusar">refuse</string>
     <string name="confirmar">confirm</string>
+    <string name="id_pedido">Order:</string>
+    <string name="resumo">Resume</string>
 
 
 

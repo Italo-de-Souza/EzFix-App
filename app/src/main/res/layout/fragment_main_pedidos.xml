@@ -6,11 +6,20 @@
     android:paddingHorizontal="10dp"
     tools:context=".mainscreen.FragmentMainPedidos">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:listitem="@layout/item_pedido"/>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/item_pedido"/>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
 
 <!--    <TextView-->
 <!--        android:layout_width="wrap_content"-->

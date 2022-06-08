@@ -12,6 +12,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.ezfix.ezfixaplication.ActivityAndamentoPedido
 import com.ezfix.ezfixaplication.ActivityDetalhePedido
 import com.ezfix.ezfixaplication.ActivityLogin
 import com.ezfix.ezfixaplication.R
@@ -23,16 +24,17 @@ import retrofit2.Callback
 import retrofit2.Response
 
 
-class PedidosAdapter(private val context: Context?) :
+class PedidosAdapter(private val context: Context?, cardPedido : ArrayList<CardPedido>) :
     RecyclerView.Adapter<PedidosAdapter.ViewHolder>() {
 
-    private var cardPedido = ArrayList<CardPedido>();
-
-
-    fun addLista(itens : ArrayList<CardPedido>){
-        cardPedido.addAll(itens);
-        notifyDataSetChanged();
-    }
+    private var cardPedido = cardPedido;
+//
+//
+//    fun addLista(itens : ArrayList<CardPedido>){
+//
+//        cardPedido.addAll(itens);
+//        notifyDataSetChanged();
+//    }
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -55,10 +57,20 @@ class PedidosAdapter(private val context: Context?) :
         val card = cardPedido[position];
 
         holder.btnDetalhes.setOnClickListener {
-            var intent = Intent(context, ActivityDetalhePedido::class.java);
+            val intent = if (card.status == context?.getString(R.string.aguardando_tecnico) ||
+                             card.status == context?.getString(R.string.aguardando_solicitante)){
+                Intent(context, ActivityDetalhePedido::class.java);
+            } else {
+                Intent(context, ActivityAndamentoPedido::class.java);
+            }
+            intent.putExtra("statusPedido", card.status);
             intent.putExtra("idAssistencia", card.idAssistencia);
             intent.putExtra("idOrcamento", card.idOrcamento);
             context!!.startActivity(intent);
+        }
+
+        if (card.status == context?.getString(R.string.concluido)){
+            holder.icStatus.background.setTint(context.getColor(R.color.green));
         }
 
         val http = HttpRequest.requerir();
@@ -83,6 +95,7 @@ class PedidosAdapter(private val context: Context?) :
         val image           : ImageView = cardView.findViewById(R.id.iv_img_assistencia);
         val btnDetalhes     : Button    = cardView.findViewById(R.id.btn_detalhes);
         val listItens       : TextView  = cardView.findViewById(R.id.list_itens);
+        val icStatus        : View      = cardView.findViewById(R.id.ic_status);
 
 
         fun vincula(card : CardPedido, bmp : Bitmap){

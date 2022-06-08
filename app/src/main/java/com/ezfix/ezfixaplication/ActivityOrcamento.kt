@@ -1,11 +1,13 @@
 package com.ezfix.ezfixaplication
 
+import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.*
 import com.ezfix.ezfixaplication.databinding.ActivityOrcamentoBinding
 import android.widget.ArrayAdapter
+import androidx.appcompat.app.AlertDialog
 import androidx.core.widget.doAfterTextChanged
 import androidx.core.widget.doOnTextChanged
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -52,9 +54,12 @@ class ActivityOrcamento : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityOrcamentoBinding.inflate(layoutInflater);
         val view = binding.root;
+        setContentView(view);
+
+        setSupportActionBar(binding.toolbar);
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         setRecyclerView();
 
@@ -96,8 +101,6 @@ class ActivityOrcamento : AppCompatActivity() {
             if (!voltar)idModelo = modelo[tvModelo.text.toString()]!!; }
 
 
-
-        setContentView(view);
     }
 
     fun limpaCampos(){
@@ -116,7 +119,7 @@ class ActivityOrcamento : AppCompatActivity() {
                            "${Constants.token.tipo} ${Constants.token.token}",
                             idAssistencia).enqueue(object : Callback<ResponseBody>{
             override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
-                if (response.isSuccessful) finish();
+                if (response.isSuccessful) showAlert();
             }
 
             override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
@@ -237,5 +240,14 @@ class ActivityOrcamento : AppCompatActivity() {
 
         val adapterProduto = ArrayAdapter(this, R.layout.list_text, listaMut)
         (tvModelo as? AutoCompleteTextView)?.setAdapter(adapterProduto)
+    }
+
+    fun showAlert(){
+        val alert = AlertDialog.Builder(this)
+        alert.setTitle("Enviado!")
+            .setMessage("Orçamento enviado com sucesso!")
+            .setCancelable(false)
+            .setPositiveButton("OK", DialogInterface.OnClickListener { dialogInterface, i -> this.finish() } )
+            .create().show();
     }
 }

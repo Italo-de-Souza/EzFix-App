@@ -5,18 +5,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:scrollbars="none"
-    android:paddingHorizontal="20dp"
     tools:context=".ActivityOrcamento">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/toolbar"
+            app:titleTextColor="@color/blue"
+            app:title="@string/orcamento"
+            android:elevation="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="30dp"
+            android:layout_marginHorizontal="10dp"
+            app:layout_constraintTop_toTopOf="parent"/>
+
 <!--        ADICIONAR ITEM INICIO-->
         <RelativeLayout
             android:id="@+id/rl_add_item"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:paddingHorizontal="20dp"
+            android:layout_below="@id/toolbar">
 
             <TextView
                 android:id="@+id/tv_titulo_add"
@@ -144,6 +158,8 @@
             android:id="@+id/rl_lista_itens"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingHorizontal="20dp"
+            android:layout_below="@id/toolbar"
             android:visibility="gone">
 
             <TextView

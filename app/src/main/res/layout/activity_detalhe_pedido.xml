@@ -6,133 +6,137 @@
     android:layout_height="match_parent"
     tools:context=".ActivityDetalhePedido">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:background="@drawable/toolbar"
+        app:titleTextColor="@color/blue"
+        android:elevation="20dp"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toTopOf="parent"/>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#DFDFDF"
+        android:background="@drawable/detalhe_pedido"
+        android:layout_below="@id/toolbar"
+        android:layout_marginHorizontal="20dp"
+        android:elevation="10dp"
         android:padding="20dp">
 
-<!--        DATA DO PEDIDO-->
+<!--        &lt;!&ndash;        ID PEDIDO&ndash;&gt;-->
+<!--        <TextView-->
+<!--            android:id="@+id/label_id_pedido"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignParentStart="true"-->
+<!--            android:text="@string/id_pedido" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/tv_id_pedido"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@id/label_id_pedido"-->
+<!--            android:layout_alignParentStart="true"-->
+<!--            android:text="#"-->
+<!--            android:textColor="@color/black" />-->
+
+        <!--        DATA DO PEDIDO-->
         <TextView
             android:id="@+id/label_data_pedido"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignStart="@id/tv_data_pedido"
             android:layout_alignParentStart="true"
-            android:text="@string/data_pedido"/>
+            android:text="@string/data_pedido" />
+
         <TextView
             android:id="@+id/tv_data_pedido"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
+            android:layout_below="@id/label_data_pedido"
             android:layout_alignParentStart="true"
             android:text="30/05/2022"
-            android:layout_below="@id/label_data_pedido"/>
+            android:textColor="@color/black" />
 
         <View
             android:id="@+id/hline"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/black"
+            android:layout_below="@id/tv_data_pedido"
             android:layout_marginVertical="20dp"
-            android:layout_below="@id/tv_data_pedido"/>
+            android:background="@color/black" />
 
-<!--        LISTA DOS ITENS DETALHADOS-->
+        <!--        LISTA DOS ITENS DETALHADOS-->
         <LinearLayout
             android:id="@+id/ll_lista_itens_detalhes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_below="@id/hline"/>
+            android:layout_below="@id/hline"
+            android:orientation="vertical" />
 
         <View
             android:id="@+id/hline2"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/black"
+            android:layout_below="@id/ll_lista_itens_detalhes"
             android:layout_marginVertical="20dp"
-            android:layout_below="@id/ll_lista_itens_detalhes"/>
+            android:background="@color/black" />
 
-<!--        LISTA DOS ITENS COM VALOR PROPOSTO-->
-        <LinearLayout
-            android:id="@+id/ll_lista_itens_valores"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_below="@id/hline2"/>
-
-        <View
-            android:id="@+id/hline3"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/black"
-            android:layout_marginVertical="20dp"
-            android:layout_below="@id/ll_lista_itens_valores"/>
-
-        <TextView
-            android:id="@+id/label_subtotal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/subtotal"
-            android:layout_below="@id/hline3"
-            android:layout_alignParentStart="true"/>
-
-        <TextView
-            android:id="@+id/tv_subtotal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/hline3"
-            android:text="R$795,00"
-            android:layout_alignParentEnd="true"/>
 
         <TextView
             android:id="@+id/label_frete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/frete"
-            android:layout_below="@id/label_subtotal"
-            android:layout_alignParentStart="true"/>
+            android:layout_below="@id/hline2"
+            android:layout_alignParentStart="true"
+            android:text="@string/frete" />
 
         <TextView
             android:id="@+id/tv_frete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tv_subtotal"
-            android:textColor="@color/green"
+            android:layout_below="@id/hline2"
+            android:layout_alignParentEnd="true"
             android:text="GRÁTIS"
-            android:layout_alignParentEnd="true"/>
+            android:textColor="@color/green" />
 
         <View
             android:id="@+id/hline4"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/black"
+            android:layout_below="@id/tv_frete"
             android:layout_marginVertical="20dp"
-            android:layout_below="@id/tv_frete"/>
+            android:background="@color/black" />
 
-<!--        TOTAL-->
+        <!--        TOTAL-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/hline4"
             android:text="@string/total"
-            android:textColor="@color/black"
-            android:layout_below="@id/hline4"/>
+            android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/tv_total"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/hline4"
-            android:text="R$795,00"
-            android:layout_alignParentEnd="true"/>
+            android:layout_alignParentEnd="true"
+            android:text="R$795,00" />
 
 
         <View
             android:id="@+id/hline5"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/black"
+            android:layout_below="@id/tv_total"
             android:layout_marginVertical="20dp"
-            android:layout_below="@id/tv_total"/>
+            android:background="@color/black" />
 
 
         <LinearLayout
@@ -146,53 +150,54 @@
                 android:id="@+id/ic_status"
                 android:layout_width="15dp"
                 android:layout_height="15dp"
+                android:layout_below="@id/hline5"
                 android:layout_marginRight="5dp"
-                android:background="@drawable/ic_status"
-                android:layout_below="@id/hline5"/>
+                android:background="@drawable/ic_status" />
 
             <TextView
                 android:id="@+id/tv_status_pedido"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textStyle="bold"
                 android:layout_below="@id/hline5"
-                android:text="Status"/>
+                android:text="Status"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
-       <LinearLayout
-           android:id="@+id/ll_buttons"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:layout_below="@id/ll_status"
-           android:layout_marginTop="15dp"
-           android:gravity="center_horizontal">
+        <LinearLayout
+            android:id="@+id/ll_buttons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ll_status"
+            android:layout_marginTop="15dp"
+            android:gravity="center_horizontal"
+            android:visibility="gone">
 
             <Button
                 android:id="@+id/btn_recusar"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/red"
                 android:layout_weight="1"
-                android:text="@string/recusar"/>
+                android:backgroundTint="@color/red"
+                android:text="@string/recusar" />
 
-           <View
-               android:layout_width="0dp"
-               android:layout_height="0dp"
-               android:layout_weight="1"
-               android:layout_below="@id/hline5"/>
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_below="@id/hline5"
+                android:layout_weight="1" />
 
             <Button
                 android:id="@+id/btn_confirmar"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/dark_blue"
                 android:layout_weight="1"
-                android:text="@string/confirmar"/>
+                android:backgroundTint="@color/dark_blue"
+                android:text="@string/confirmar" />
 
 
-       </LinearLayout>
+        </LinearLayout>
 
 
     </RelativeLayout>

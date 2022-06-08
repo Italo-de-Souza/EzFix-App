@@ -12,6 +12,7 @@ import android.widget.AbsListView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.ezfix.ezfixaplication.configuration.HttpRequest
 import com.ezfix.ezfixaplication.data.CardAssist
 import com.ezfix.ezfixaplication.data.CardAssistencia
@@ -22,11 +23,12 @@ import retrofit2.Response
 
 class FragmentMainHome : Fragment(), AssistenciaAdapter.OnItemClickListener {
 
-    private lateinit var binding : FragmentMainHomeBinding;
-    private lateinit var recyclerView : RecyclerView;
-    private lateinit var adapter : AssistenciaAdapter;
-    private lateinit var layoutManager: LinearLayoutManager;
+    private lateinit var binding        : FragmentMainHomeBinding;
+    private lateinit var recyclerView   : RecyclerView;
+    private lateinit var adapter        : AssistenciaAdapter;
+    private lateinit var layoutManager  : LinearLayoutManager;
     private lateinit var cardAssistencia: CardAssistencia;
+    private lateinit var refresh        : SwipeRefreshLayout;
     private var page = 0;
     private var totalPages = 0;
     private var isScrolling = false;
@@ -44,7 +46,14 @@ class FragmentMainHome : Fragment(), AssistenciaAdapter.OnItemClickListener {
         binding = FragmentMainHomeBinding.inflate(layoutInflater);
         val view = binding.root;
 
+        refresh = binding.swipeRefresh;
         recyclerView = binding.recyclerView;
+
+        refresh.setOnRefreshListener {
+            page = 0;
+            adapter.limpaLista();
+            buscarAssistencias();
+        }
 
         setRecycleView()
         buscarAssistencias();
@@ -77,28 +86,31 @@ class FragmentMainHome : Fragment(), AssistenciaAdapter.OnItemClickListener {
 
     fun buscarAssistencias(){
 
-            val http = HttpRequest.requerir();
-            http.getCardsAssistencias(page).enqueue(object : Callback<CardAssistencia>{
-                override fun onResponse(
-                    call: Call<CardAssistencia>,
-                    response: Response<CardAssistencia>
-                ) {
-                    if (response.body() != null){
-                        if (page == 0){
-                            cardAssistencia = response?.body()!!;
-                            totalPages      = response?.body()!!.totalPages;
-                        } else {
-                            cardAssistencia.content = response?.body()!!.content;
-                        }
-                        adapter.addLista(cardAssistencia.content)
-                        page++;
+        refresh.isRefreshing = true;
+        val http = HttpRequest.requerir();
+        http.getCardsAssistencias(page).enqueue(object : Callback<CardAssistencia>{
+            override fun onResponse(
+                call: Call<CardAssistencia>,
+                response: Response<CardAssistencia>
+            ) {
+                if (response.body() != null){
+                    if (page == 0){
+                        cardAssistencia = response?.body()!!;
+                        totalPages      = response?.body()!!.totalPages;
+                    } else {
+                        cardAssistencia.content = response?.body()!!.content;
                     }
+                    adapter.addLista(cardAssistencia.content)
+                    page++;
                 }
+                refresh.isRefreshing = false;
+            }
 
-                override fun onFailure(call: Call<CardAssistencia>, t: Throwable) {
-                    Log.e("api", t.message!!)
-                }
-            })
+            override fun onFailure(call: Call<CardAssistencia>, t: Throwable) {
+                Log.e("api", t.message!!)
+                refresh.isRefreshing = false;
+            }
+        })
     }
 
     fun setRecycleView(){

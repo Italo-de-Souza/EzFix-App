@@ -23,14 +23,6 @@
             android:layout_alignParentEnd="true"
             app:tint="@color/red" />
 
-        <ImageView
-            android:id="@+id/ic_edit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toLeftOf="@id/ic_delete"
-            android:layout_marginRight="5dp"
-            android:src="@drawable/ic_edit"/>
-
         <TextView
             android:id="@+id/tv_problema"
             android:layout_width="wrap_content"

@@ -2,17 +2,13 @@ package com.ezfix.ezfixaplication
 
 import android.content.Intent
 import android.content.SharedPreferences
-import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
-import android.widget.TextView
 import android.widget.Toast
 import com.ezfix.ezfixaplication.cadastro.ActivityCadastro
 import com.ezfix.ezfixaplication.configuration.Constants
 import com.ezfix.ezfixaplication.configuration.HttpRequest
-import com.ezfix.ezfixaplication.configuration.NetworkChecker
 import com.ezfix.ezfixaplication.data.Token
 import com.ezfix.ezfixaplication.data.UserLogado
 import com.ezfix.ezfixaplication.mainscreen.ActivityMain

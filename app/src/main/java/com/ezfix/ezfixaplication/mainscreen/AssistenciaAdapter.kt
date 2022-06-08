@@ -30,6 +30,10 @@ class AssistenciaAdapter(private val onItemClickListener: OnItemClickListener) :
         cardAssistencia.addAll(itens);
         notifyDataSetChanged();
     }
+    fun limpaLista(){
+        cardAssistencia.clear()
+        notifyDataSetChanged();
+    }
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

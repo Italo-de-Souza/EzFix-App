@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ActivityConfirmaPedido">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/toolbar"
+            app:titleTextColor="@color/blue"
+            android:elevation="20dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginBottom="30dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <RelativeLayout
+            android:id="@+id/ll_resumo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:elevation="10dp"
+            android:background="@drawable/detalhe_pedido"
+            android:backgroundTint="@color/blue_card"
+            android:layout_below="@id/toolbar"
+            android:padding="20dp">
+
+            <TextView
+                android:id="@+id/tv_resumo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/resumo"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/hline"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/tv_resumo"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="20dp"
+                android:background="@color/black" />
+
+            <!--        LISTA DOS ITENS DETALHADOS-->
+            <LinearLayout
+                android:id="@+id/ll_lista_itens_detalhes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/hline"
+                android:orientation="vertical" />
+
+            <View
+                android:id="@+id/hline2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/ll_lista_itens_detalhes"
+                android:layout_marginVertical="20dp"
+                android:background="@color/black" />
+
+
+            <TextView
+                android:id="@+id/label_frete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/hline2"
+                android:layout_alignParentStart="true"
+                android:text="@string/frete" />
+
+            <TextView
+                android:id="@+id/tv_frete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/hline2"
+                android:layout_alignParentEnd="true"
+                android:text="GRÁTIS"
+                android:textColor="@color/green" />
+
+            <!--        TOTAL-->
+            <TextView
+                android:id="@+id/label_total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_frete"
+                android:text="@string/total"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/tv_total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_frete"
+                android:layout_alignParentEnd="true"
+                android:text="R$795,00" />
+
+
+            <View
+                android:id="@+id/hline5"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/tv_total"
+                android:layout_marginVertical="20dp"
+                android:background="@color/black" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/ll_radio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ll_resumo"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/detalhe_pedido"
+            android:backgroundTint="@color/white"
+            android:elevation="10dp"
+            android:padding="5dp">
+
+            <RadioButton
+                android:id="@+id/rb_entregar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_walk"
+                android:text="@string/entragar_retirar"
+                android:buttonTint="@color/dark_blue"
+                android:checked="true" />
+
+            <Button
+                android:id="@+id/btn_finalizar"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_below="@id/rb_entregar"
+                android:backgroundTint="@color/dark_blue"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="15dp"
+                android:text="@string/btn_finalizar"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</ScrollView>

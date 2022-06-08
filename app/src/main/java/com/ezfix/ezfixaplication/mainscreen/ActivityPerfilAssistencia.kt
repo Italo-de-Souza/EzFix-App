@@ -37,9 +37,13 @@ class ActivityPerfilAssistencia : AppCompatActivity(), CertificadoAdapter.OnItem
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityPerfilAssistenciaBinding.inflate(layoutInflater);
         val view = binding.root;
+        setContentView(view)
+
+        setSupportActionBar(binding.toolbar);
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
 
         var id = intent.getLongExtra("id", 0);
 
@@ -58,7 +62,6 @@ class ActivityPerfilAssistencia : AppCompatActivity(), CertificadoAdapter.OnItem
 
         setRecycleView();
         buscaDados(id);
-        setContentView(view)
     }
 
     fun preencheCampos(perfilAssistencia: PerfilAssistencia){
