@@ -13,6 +13,8 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.ezfix.ezfixaplication.ActivityPerfilAssistencia
+import com.ezfix.ezfixaplication.adapters.AssistenciaAdapter
 import com.ezfix.ezfixaplication.configuration.HttpRequest
 import com.ezfix.ezfixaplication.data.CardAssist
 import com.ezfix.ezfixaplication.data.CardAssistencia

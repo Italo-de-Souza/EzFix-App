@@ -9,9 +9,9 @@ import com.ezfix.ezfixaplication.databinding.ActivityOrcamentoBinding
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AlertDialog
 import androidx.core.widget.doAfterTextChanged
-import androidx.core.widget.doOnTextChanged
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.ezfix.ezfixaplication.adapters.OrcamentoAdapter
 import com.ezfix.ezfixaplication.configuration.Constants
 import com.ezfix.ezfixaplication.configuration.HttpRequest
 import com.ezfix.ezfixaplication.data.CardOrcamento

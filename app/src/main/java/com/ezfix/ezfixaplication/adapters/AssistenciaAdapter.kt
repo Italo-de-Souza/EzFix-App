@@ -1,4 +1,4 @@
-package com.ezfix.ezfixaplication.mainscreen
+package com.ezfix.ezfixaplication.adapters
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory

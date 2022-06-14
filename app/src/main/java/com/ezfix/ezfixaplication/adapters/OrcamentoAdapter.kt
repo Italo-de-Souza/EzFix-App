@@ -1,4 +1,4 @@
-package com.ezfix.ezfixaplication
+package com.ezfix.ezfixaplication.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.ezfix.ezfixaplication.R
 import com.ezfix.ezfixaplication.data.CardOrcamento
 import com.ezfix.ezfixaplication.data.Orcamento
 import java.util.ArrayList

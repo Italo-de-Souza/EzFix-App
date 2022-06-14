@@ -35,10 +35,10 @@
             android:exported="false" />
         <activity
             android:name=".ActivityOrcamento"
-            android:parentActivityName=".mainscreen.ActivityPerfilAssistencia"
+            android:parentActivityName=".ActivityPerfilAssistencia"
             android:exported="false" />
         <activity
-            android:name=".mainscreen.ActivityPerfilAssistencia"
+            android:name=".ActivityPerfilAssistencia"
             android:parentActivityName=".mainscreen.ActivityMain"
             android:exported="false" />
         <activity

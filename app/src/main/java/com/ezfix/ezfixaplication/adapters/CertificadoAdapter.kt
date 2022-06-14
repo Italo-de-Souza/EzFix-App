@@ -1,4 +1,4 @@
-package com.ezfix.ezfixaplication.mainscreen
+package com.ezfix.ezfixaplication.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,12 +8,10 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.ezfix.ezfixaplication.R
-import com.ezfix.ezfixaplication.data.CardAssist
-import com.ezfix.ezfixaplication.databinding.ItemCertificadoBinding
 import com.ezfix.ezfixaplication.model.Certificado
 import java.util.ArrayList
 
-class CertificadoAdapter(private val onItemClickListener: CertificadoAdapter.OnItemClickListener)
+class CertificadoAdapter(private val onItemClickListener: OnItemClickListener)
     : RecyclerView.Adapter<CertificadoAdapter.ViewHolder>(){
 
     private var cardCertificado = ArrayList<Certificado>();
@@ -26,7 +24,7 @@ class CertificadoAdapter(private val onItemClickListener: CertificadoAdapter.OnI
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(
         R.layout.item_certificado, parent, false);
-        val viewHolder = CertificadoAdapter.ViewHolder(view);
+        val viewHolder = ViewHolder(view);
 
         viewHolder.itemView.setOnClickListener {
             if (onItemClickListener != null) {

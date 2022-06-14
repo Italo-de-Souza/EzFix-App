@@ -1,4 +1,4 @@
-package com.ezfix.ezfixaplication.mainscreen
+package com.ezfix.ezfixaplication.adapters
 
 import android.content.Context
 import android.content.Intent
@@ -14,7 +14,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.ezfix.ezfixaplication.ActivityAndamentoPedido
 import com.ezfix.ezfixaplication.ActivityDetalhePedido
-import com.ezfix.ezfixaplication.ActivityLogin
 import com.ezfix.ezfixaplication.R
 import com.ezfix.ezfixaplication.configuration.HttpRequest
 import com.ezfix.ezfixaplication.data.CardPedido

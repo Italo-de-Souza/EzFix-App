@@ -1,6 +1,5 @@
 package com.ezfix.ezfixaplication.mainscreen
 
-import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,6 +9,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.ezfix.ezfixaplication.adapters.PedidosAdapter
 import com.ezfix.ezfixaplication.configuration.Constants
 import com.ezfix.ezfixaplication.configuration.HttpRequest
 import com.ezfix.ezfixaplication.data.CardPedido

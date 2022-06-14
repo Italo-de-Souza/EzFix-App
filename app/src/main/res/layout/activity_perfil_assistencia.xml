@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:scrollbars="none"
     android:background="@drawable/ic_wave"
-    tools:context=".mainscreen.ActivityPerfilAssistencia">
+    tools:context=".ActivityPerfilAssistencia">
 
     <RelativeLayout
         android:layout_width="match_parent"
